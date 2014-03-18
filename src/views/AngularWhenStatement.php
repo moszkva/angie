@@ -1,0 +1,1 @@
+.when("/<?php echo $uri;?>",{"controller":"<?php echo $controller;?>","templateUrl":"<?php echo $templateUrl;?>"})
