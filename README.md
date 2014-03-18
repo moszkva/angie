@@ -82,9 +82,9 @@ and you must place these in your index.html after each other angular scripts:
             $routeProvider
 			.when("/angie/test",{"controller":"AngieTestController","templateUrl":"angie/test"})
 			.when("/angie/test/create",{"controller":"AngieTestController","templateUrl":"angie/test/create"})
-			.when("/angie/test/:test",{"controller":"AngieTestController","templateUrl":"angie/test/' + 		$routeParams.test + '"})
+			.when("/angie/test/:test",{"controller":"AngieTestController","templateUrl":"angie/test/' + $routeParams.test + '"})
 			.when("/angie/test/:test/edit",{"controller":"AngieTestController","templateUrl":"angie/test/' + $routeParams.test + '/edit"})
-                   	.when("//",{"controller":"TestController","templateUrl":"/"})
+			.when("//",{"controller":"TestController","templateUrl":"/"})
 			.otherwise({"redirectTo":"/angie/test"})}]);
 
 ```
