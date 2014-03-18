@@ -64,6 +64,15 @@ Route::resource('angie/test', 'AngieTestController');
 
 ```
 
+and you must place these in your index.html after each other angular scripts:
+
+```html
+<!--Angie BEGIN-->
+<script src="angie/get/routing"></script>
+<script src="angie/get/services"></script>
+<!--Angie END-->
+```
+
 
 
 
