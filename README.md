@@ -89,7 +89,59 @@ and you must place these in your index.html after each other angular scripts:
 
 ```
 
+- Generates angular services for basic data transfer:
+```javascript
+var <YourAppName>Services= angular.module('<YourAppName>Services', ['ngResource']);
 
+<YourAppName>Services.service('AngieTestControllerService', ['$http', '$resource', function($http, $resource){
+		
+	var postURL="angie/test";			
+	
+	this.insert = function(properties){
+		return $http.post(postURL, properties);
+	};
+			
+	var putURL="angie/test/:param";
+		
+	this.update = function(properties){
+		return $http.put(putURL.replace(':param', properties.id), properties);
+	};
+	
+		
+	var deleteURL="angie/test/:param";
+
+	this.delete = function(id){
+		return $http.delete(deleteURL.replace(':param', id));
+	};
+	
+		
+	this.show = function(id){
+	
+		var showURL="angie/test";	
+	
+		return $resource(showURL + '/' + id).get();
+	}
+	
+}]);
+```
+
+Very important constraint for valid service generation:
+- Laravel routing rules by controller must be unique.
+Example:
+
+Valid configuration (AnotherAngieTestController is subclass of AngieTestController):
+```php
+Route::resource('angie/test', 'AngieTestController');
+Route::resource('angie/test2', 'AnotherAngieTestController');
+
+```
+Invalid configuration:
+
+```php
+Route::resource('angie/test', 'AngieTestController');
+Route::resource('angie/test2', 'AngieTestController');
+
+```
 
 
 
