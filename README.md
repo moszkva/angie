@@ -47,12 +47,12 @@ and you must register routing rules for angie:
 
 Route::get('angie/get/routing', function()
 {
-	return Angie::renderRouterProviderStatment('BrainMachineApp', '/angie/test');
+	return Angie::renderRouterProviderStatment('<YourAppName>', '/angie/test');
 });
 
 Route::get('angie/get/services', function()
 {
-	return Angie::renderServices('BrainMachineApp');
+	return Angie::renderServices('<YourAppName>');
 });
 
 // Optional for testing
@@ -73,6 +73,19 @@ and you must place these in your index.html after each other angular scripts:
 <!--Angie END-->
 ```
 
+##How works the angie?##
+
+- Generates angular routeprovider statment. Above example:
+```js
+
+<YourAppName>.config(['$routeProvider',
+    function($routeProvider) {
+            $routeProvider
+							.when("/angie/test",{"controller":"AngieTestController","templateUrl":"angie/test"})					.when("/angie/test/create",{"controller":"AngieTestController","templateUrl":"angie/test/create"})			.when("/angie/test/:test",{"controller":"AngieTestController","templateUrl":"angie/test/' + $routeParams.test + '"})						.when("/angie/test/:test/edit",{"controller":"AngieTestController","templateUrl":"angie/test/' + $routeParams.test + '/edit"})
+.when("//",{"controller":"TestController","templateUrl":"/"})			 
+.otherwise({"redirectTo":"/angie/test"})}]);
+
+```
 
 
 
