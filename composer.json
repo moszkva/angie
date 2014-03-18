@@ -1,6 +1,7 @@
 {
     "name": "moszkva/angie",
     "description": "Laravel Angular routing manager. Generates angular routing rules and services from serverside routing rules.",
+	"license": "MIT",
     "authors": [
         {
             "name": "Gabor Szecsi (Moszkva)",
