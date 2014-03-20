@@ -93,36 +93,11 @@ and you must place these in your index.html after each other angular scripts:
 ```javascript
 var <YourAppName>Services= angular.module('<YourAppName>Services', ['ngResource']);
 
-<YourAppName>Services.service('AngieTestControllerService', ['$http', '$resource', function($http, $resource){
-		
-	var postURL="angie/test";			
-	
-	this.insert = function(properties){
-		return $http.post(postURL, properties);
-	};
-			
-	var putURL="angie/test/:param";
-		
-	this.update = function(properties){
-		return $http.put(putURL.replace(':param', properties.id), properties);
-	};
-	
-		
-	var deleteURL="angie/test/:param";
+AngieTestControllerService.insert;		
+AngieTestControllerService.update(properties);
+AngieTestControllerService.delete(id);
+AngieTestControllerService.show(id);
 
-	this.delete = function(id){
-		return $http.delete(deleteURL.replace(':param', id));
-	};
-	
-		
-	this.show = function(id){
-	
-		var showURL="angie/test";	
-	
-		return $resource(showURL + '/' + id).get();
-	}
-	
-}]);
 ```
 
 Very important constraint for valid service generation:
