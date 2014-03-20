@@ -33,7 +33,7 @@ class GeneratorTest extends \TestCase
 		$this->assertTrue(strpos($generator->renderRouterProviderStatment('testApplication', 'someWhere'), 'otherwise(')!==FALSE);
 		$this->assertTrue(strpos($generator->renderRouterProviderStatment('testApplication', 'someWhere'), '"redirectTo":"someWhere"')!==FALSE);		
 		$this->assertTrue(strpos($generator->renderRouterProviderStatment('testApplication'), 'when("/test3/:id/edit"')===FALSE);
-		$this->assertTrue(strpos($generator->renderRouterProviderStatment('testApplication'), 'when("/test/test3",{"controller":"AngieTestController3","templateUrl":"test/test3"})')!==FALSE);
+		$this->assertTrue(strpos($generator->renderRouterProviderStatment('testApplication'), 'when("/test/test3",{"controller":"AngieTestController3","templateUrl": function(params){ return "test/test3"}})')!==FALSE);
 	}
 	
 	public function testRenderServices()

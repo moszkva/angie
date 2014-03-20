@@ -7,22 +7,23 @@ class LaravelRouteParser
 	/**
 	 * @return \Moszkva\Angie\RouteCollection
 	 */
-	public function getRouteCollection()
+	public function getRouteCollection($onlyGetMethod = false)
 	{
 		$routeCollection	= new RouteCollection();
 		
 		foreach(\Route::getRoutes() as $route)
 		{
 			$action = $route->getAction();
-			
-			if(in_array('GET', $route->methods()) && isset($action['controller']))
+
+			if(($onlyGetMethod || in_array('GET', $route->methods())) && isset($action['controller']))
 			{
+				$method			 = current($route->methods());
 				$params			 = $route->parameterNames();
 				$controllerParts = explode('@', $action['controller']);
 				$URI			 = $this->getURIbyParams($route->getUri(), $params);
 				$templateURL	 = $this->getTemplateURLFromURI($URI, $params);
 
-				$routeCollection[]	= new RouteCollectionItem($URI, $templateURL, $controllerParts[0], $params);
+				$routeCollection[]	= new RouteCollectionItem($URI, $templateURL, $controllerParts[0], $controllerParts[1], $method,$params);
 			}
 		}
 		
@@ -79,7 +80,7 @@ class LaravelRouteParser
 	{
 		foreach($params as $param)
 		{
-			$uri	 = str_replace(':'.$param, '\' + $routeParams.'.$param.' + \'', $uri);
+			$uri	 = str_replace(':'.$param, '" + params.'.$param.' + "', $uri);
 		}
 		
 		return $uri; 

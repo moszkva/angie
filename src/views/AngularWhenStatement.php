@@ -1,1 +1,1 @@
-.when("/<?php echo $uri;?>",{"controller":"<?php echo $controller;?>","templateUrl":"<?php echo $templateUrl;?>"})
+.when("/<?php echo $uri;?>",{"controller":"<?php echo $controller;?>","templateUrl": function(params){ return "<?php echo $templateUrl;?>"}})

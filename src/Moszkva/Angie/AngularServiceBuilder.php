@@ -6,7 +6,6 @@ class AngularServiceBuilder
 {
 	private $appName;
 	private $container	= array('service' => array());
-	private $methods	= array('POST', 'PUT', 'DELETE', 'GET');
 	
 	public function __construct($appName)
 	{
@@ -18,30 +17,23 @@ class AngularServiceBuilder
 		return new static($appName);
 	}
 	
-	public function addService(RouteCollectionItem $route, $methods = array('GET'))
+	public function addService(RouteCollectionItem $route)
 	{
-		$uri = $route->getURI();
+		$uri	= $route->getURI();
+		$method	= $route->getMethod();
 		
 		if($route->getURI()=='/')
 		{
 			$uri = '';
 		}
 		
-		$data = array('uri' => $uri, 'controller' => $route->getController(), 'methods' => array());
-		
-		foreach($this->methods as $method)
+		if($route->getMethod()=='GET' && $route->getAction()=='show')
 		{
-			if(in_array($method, $methods))
-			{
-				$data['methods'][$method] = TRUE;
-			}
-			else
-			{
-				$data['methods'][$method] = FALSE;
-			}
-		}
-		
-		$this->container['service'][] = $data; 
+			$method = "SHOW";
+		}	
+
+		$this->container['service'][$route->getController()][] = array(	'URL'		=> $uri,
+																		'method'	=> $method); 
 		
 		return $this;
 	}
@@ -50,9 +42,17 @@ class AngularServiceBuilder
 	{
 		$data = array('services' => array(), 'appName' => $this->appName);
 		
-		foreach($this->container['service'] as $service)
+		foreach($this->container['service'] as $key => $service)
 		{
-			$data['services'][] = \View::make('angie::AngularService', array('appName' => $this->appName, 'url' => $service['uri'], 'controller' => $service['controller'], 'methods' => $service['methods'])).PHP_EOL;
+			$datas = array('appName' => $this->appName, 'controller' => $key);
+			
+			foreach($service as $url)
+			{
+				$datas[strtolower($url['method']).'URL'] = $url['URL'];
+			}
+			
+			$data['services'][] = \View::make('angie::AngularService', $datas).PHP_EOL;
+	
 		}
 		
 		return \View::make('angie::AngularServices', $data);

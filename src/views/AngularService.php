@@ -1,8 +1,8 @@
 <?php echo $appName;?>Services.service('<?php echo $controller;?>Service', ['$http', '$resource', function($http, $resource){
 
-	<?php if($methods['POST']):?>
+	<?php if(!empty($postURL)):?>
 	
-		var postURL="<?php echo $url?>";			
+		var postURL="<?php echo $postURL?>";			
 	
 		this.insert = function(properties){
 			return $http.post(postURL, properties);
@@ -10,31 +10,36 @@
 	
 	<?php endif;?>
 	
-	<?php if($methods['PUT']):?>
+	<?php if(!empty($putURL)):?>
 		
-		var putURL="<?php echo $url;?>/:param";
+		var putURL="<?php echo $putURL;?>";
 		
 		this.update = function(properties){
-			return $http.put(putURL.replace(':param', properties.id), properties);
+			return $http.put(putURL.replace(/:([A-Z]+)/i, properties.id), properties);
 		};
 	
 	<?php endif; ?>
 	
-	<?php if($methods['DELETE']):?>
+	<?php if(!empty($deleteURL)):?>
 		
-		var deleteURL="<?php echo $url;?>/:param";
+		var deleteURL="<?php echo $deleteURL;?>";
 
 		this.delete = function(id){
-			return $http.delete(deleteURL.replace(':param', id));
+			return $http.delete(deleteURL.replace(/:([A-Z]+)/i, id));
 		};
 	
 	<?php endif;?>
 	
-	this.show = function(id){
-	
-		var showURL="<?php echo $url;?>";	
-	
-		return $resource(showURL + '/' + id).get();
-	}
+	<?php if(!empty($showURL)):?>
+		
+		this.show = function(id){
+
+			var showURL="<?php echo $showURL;?>";	
+
+			return $resource(showURL.replace(/:([A-Z]+)/i, id)).get();
+		}
+		
+	<?php endif;?>
+		
 	
 }]);

@@ -24,17 +24,10 @@ class Generator
 	{
 		$routerParser	= new LaravelRouteParser();		
 		$builder		= new AngularServiceBuilder($appName);
-		
-		$controllers = array();
-		
-		foreach($routerParser->getRouteCollection() as $route)
+
+		foreach($routerParser->getRouteCollection(true) as $route)
 		{
-			if(!in_array($route->getController(), $controllers))
-			{
-				$builder->addService($route, $routerParser->getMethodsByController($route->getController()));
-			}
-			
-			$controllers[] = $route->getController();
+			$builder->addService($route);
 		}
 		
 		return $builder->render();

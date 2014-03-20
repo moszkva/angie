@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Package Test Suite" tests="5" assertions="33" failures="0" errors="0" time="3.159741">
-    <testsuite name="Moszkva\Angie\Test\GeneratorTest" file="C:\wamp\www\testapp\brainmachine\workbench\moszkva\angie\tests\Moszkva\Angie\Test\GeneratorTest.php" namespace="Moszkva\Angie\Test" fullPackage="Moszkva.Angie.Test" tests="2" assertions="19" failures="0" errors="0" time="2.411124">
-      <testcase name="testrenderRouterProviderStatment" class="Moszkva\Angie\Test\GeneratorTest" file="C:\wamp\www\testapp\brainmachine\workbench\moszkva\angie\tests\Moszkva\Angie\Test\GeneratorTest.php" line="25" assertions="8" time="1.914680"/>
-      <testcase name="testRenderServices" class="Moszkva\Angie\Test\GeneratorTest" file="C:\wamp\www\testapp\brainmachine\workbench\moszkva\angie\tests\Moszkva\Angie\Test\GeneratorTest.php" line="39" assertions="11" time="0.496444"/>
+  <testsuite name="Package Test Suite" tests="5" assertions="33" failures="0" errors="0" time="3.326096">
+    <testsuite name="Moszkva\Angie\Test\GeneratorTest" file="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\tests\Moszkva\Angie\Test\GeneratorTest.php" namespace="Moszkva\Angie\Test" fullPackage="Moszkva.Angie.Test" tests="2" assertions="19" failures="0" errors="0" time="2.590368">
+      <testcase name="testrenderRouterProviderStatment" class="Moszkva\Angie\Test\GeneratorTest" file="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\tests\Moszkva\Angie\Test\GeneratorTest.php" line="25" assertions="8" time="2.085195"/>
+      <testcase name="testRenderServices" class="Moszkva\Angie\Test\GeneratorTest" file="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\tests\Moszkva\Angie\Test\GeneratorTest.php" line="39" assertions="11" time="0.505173"/>
     </testsuite>
-    <testsuite name="Moszkva\Angie\Test\LaravelRouteParserTest" file="C:\wamp\www\testapp\brainmachine\workbench\moszkva\angie\tests\Moszkva\Angie\Test\LaravelRouteParserTest.php" namespace="Moszkva\Angie\Test" fullPackage="Moszkva.Angie.Test" tests="2" assertions="10" failures="0" errors="0" time="0.468081">
-      <testcase name="testGetRouteCollection" class="Moszkva\Angie\Test\LaravelRouteParserTest" file="C:\wamp\www\testapp\brainmachine\workbench\moszkva\angie\tests\Moszkva\Angie\Test\LaravelRouteParserTest.php" line="19" assertions="6" time="0.234512"/>
-      <testcase name="testGetMethodsByController" class="Moszkva\Angie\Test\LaravelRouteParserTest" file="C:\wamp\www\testapp\brainmachine\workbench\moszkva\angie\tests\Moszkva\Angie\Test\LaravelRouteParserTest.php" line="43" assertions="4" time="0.233569"/>
+    <testsuite name="Moszkva\Angie\Test\LaravelRouteParserTest" file="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\tests\Moszkva\Angie\Test\LaravelRouteParserTest.php" namespace="Moszkva\Angie\Test" fullPackage="Moszkva.Angie.Test" tests="2" assertions="10" failures="0" errors="0" time="0.481992">
+      <testcase name="testGetRouteCollection" class="Moszkva\Angie\Test\LaravelRouteParserTest" file="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\tests\Moszkva\Angie\Test\LaravelRouteParserTest.php" line="19" assertions="6" time="0.249241"/>
+      <testcase name="testGetMethodsByController" class="Moszkva\Angie\Test\LaravelRouteParserTest" file="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\tests\Moszkva\Angie\Test\LaravelRouteParserTest.php" line="43" assertions="4" time="0.232751"/>
     </testsuite>
-    <testsuite name="Moszkva\Angie\Test\RouteCollectionTest" file="C:\wamp\www\testapp\brainmachine\workbench\moszkva\angie\tests\Moszkva\Angie\Test\RouteCollectionTest.php" namespace="Moszkva\Angie\Test" fullPackage="Moszkva.Angie.Test" tests="1" assertions="4" failures="0" errors="0" time="0.280536">
-      <testcase name="testOffsetSet" class="Moszkva\Angie\Test\RouteCollectionTest" file="C:\wamp\www\testapp\brainmachine\workbench\moszkva\angie\tests\Moszkva\Angie\Test\RouteCollectionTest.php" line="10" assertions="4" time="0.280536"/>
+    <testsuite name="Moszkva\Angie\Test\RouteCollectionTest" file="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\tests\Moszkva\Angie\Test\RouteCollectionTest.php" namespace="Moszkva\Angie\Test" fullPackage="Moszkva.Angie.Test" tests="1" assertions="4" failures="0" errors="0" time="0.253736">
+      <testcase name="testOffsetSet" class="Moszkva\Angie\Test\RouteCollectionTest" file="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\tests\Moszkva\Angie\Test\RouteCollectionTest.php" line="10" assertions="4" time="0.253736"/>
     </testsuite>
   </testsuite>
 </testsuites>

@@ -18,6 +18,16 @@ class RouteCollectionItem
 	private $controller;
 	
 	/**
+	 * @var string
+	 */
+	private $action;
+	
+	/**
+	 * @var method
+	 */
+	private $method;		
+	
+	/**
 	 * @var array
 	 */
 	private $parameters;
@@ -28,11 +38,13 @@ class RouteCollectionItem
 	 * @param string $controller
 	 * @param array $parameters
 	 */
-	public function __construct($URI, $templateURL, $controller, $parameters = array())
+	public function __construct($URI, $templateURL, $controller, $action, $method, $parameters = array())
 	{
 		$this->URI			= $URI;
 		$this->templateURL	= $templateURL;
 		$this->controller	= $controller;
+		$this->action		= $action;
+		$this->method		= $method;
 		$this->parameters	= $parameters;
 	}
 	
@@ -50,6 +62,16 @@ class RouteCollectionItem
 	{
 		return $this->controller;
 	}
+	
+	public function getAction()
+	{
+		return $this->action;
+	}
+	
+	public function getMethod()
+	{
+		return $this->method;
+	}	
 
 	public function getParameters()
 	{
