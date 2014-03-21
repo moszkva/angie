@@ -55,9 +55,6 @@ Route::get('angie/get/services', function()
 	return Angie::renderServices('<YourAppName>');
 });
 
-// Optional for testing
-
-Route::resource('angie/test', 'AngieTestController');
 
 // Angie END
 
