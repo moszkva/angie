@@ -9,6 +9,7 @@ https://packagist.org/packages/moszkva/angie
 
 - Generates angular routing rules from serverside routing rules
 - Generates angular services for basic data transfer.
+- Namespace resolving in controller's name.
 
 
 ##Installation##
@@ -114,6 +115,30 @@ Route::resource('angie/test', 'AngieTestController');
 Route::resource('angie/test2', 'AngieTestController');
 
 ```
+
+Namespace resolving:
+
+
+	Laravel route rule:
+
+		Route::resource('/test', 'Test\Angie\TestController')
+		
+	Controller name in generated routprovider statement:
+	
+		TestAngieTestController
+		
+	Service name in generated service statement:
+	
+		TestAngieTestControllerService
+	
+		
+		
+		
+	
+
+	
+
+
 
 
 
