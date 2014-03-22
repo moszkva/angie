@@ -19,11 +19,10 @@ class LaravelRouteParser
 			{
 				$method			 = current($route->methods());
 				$params			 = $route->parameterNames();
-				$controllerParts = explode('@', $action['controller']);
 				$URI			 = $this->getURIbyParams($route->getUri(), $params);
 				$templateURL	 = $this->getTemplateURLFromURI($URI, $params);
 
-				$routeCollection[]	= new RouteCollectionItem($URI, $templateURL, $controllerParts[0], $controllerParts[1], $method,$params);
+				$routeCollection[]	= new RouteCollectionItem($URI, $templateURL, $this->getControllerNameByAction($action['controller']), $this->getActionNameByAction($action['controller']), $method,$params);
 			}
 		}
 		
@@ -44,9 +43,7 @@ class LaravelRouteParser
 			{
 				$action = $route->getAction();
 				
-				$controllerParts = explode('@', $action['controller']);
-				
-				if($controllerParts[0]==$controller)
+				if( $this->getControllerNameByAction($action['controller'])==$controller)
 				{					
 					$methods = array_merge($methods, $route->methods());
 				}
@@ -55,6 +52,20 @@ class LaravelRouteParser
 		
 		return $methods;
 	}
+	
+	private function getControllerNameByAction($action)
+	{
+		$controllerParts = explode('@', $action);
+		
+		return trim(str_replace('\\', '', $controllerParts[0]));
+	}
+	
+	private function getActionNameByAction($action)
+	{
+		$controllerParts = explode('@', $action);
+		
+		return $controllerParts[1];
+	}	
 	
 	/**
 	 * @param string $uri
