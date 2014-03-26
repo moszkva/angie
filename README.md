@@ -91,10 +91,11 @@ and you must place these in your index.html after each other angular scripts:
 ```javascript
 var <YourAppName>Services= angular.module('<YourAppName>Services', ['ngResource']);
 
-AngieTestControllerService.insert;		
+AngieTestControllerService.insert(properties);		
 AngieTestControllerService.update(properties);
 AngieTestControllerService.delete(id);
 AngieTestControllerService.show(id);
+AngieTestControllerService.list(id, params); // params is optional.
 
 ```
 
