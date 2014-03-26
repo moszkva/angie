@@ -56,6 +56,8 @@ class GeneratorTest extends \TestCase
 		$this->assertTrue(strpos($generator->renderServices('testApplication'), 'var postURL="test2"')!==FALSE);		
 		$this->assertTrue(strpos($generator->renderServices('testApplication'), 'TestAngieTestController4Service')!==FALSE);
 		$this->assertTrue(strpos($generator->renderServices('testApplication'), 'TestAngieTestController5Service')!==FALSE);
+		$this->assertTrue(strpos($generator->renderServices('testApplication'), 'listURL="angie/test/:test"')!==FALSE);	
+		$this->assertTrue(strpos($generator->renderServices('testApplication'), 'listURL="test3/:test3/edit"')===FALSE);	
 		
 		$this->assertContains('GET', $parser->getMethodsByController('AngieTestController1'));
 		$this->assertContains('POST', $parser->getMethodsByController('AngieTestController1'));

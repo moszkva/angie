@@ -39,6 +39,14 @@
 			return $resource(showURL.replace(/:([A-Z]+)/i, id)).get();
 		}
 		
+		this.list = function(id, params){
+			var listURL="<?php echo $showURL;?>";
+			var settings={query:{method: 'get', isArray:true}};
+			params = (typeof params==='undefined' ? {} : params);
+		
+			return $resource(listURL.replace(/:([A-Z]+)/i, id), params, settings).query();
+		}		
+		
 	<?php endif;?>
 		
 	

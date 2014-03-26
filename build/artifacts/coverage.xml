@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1395488518">
-  <project timestamp="1395488518">
+<coverage generated="1395836788">
+  <project timestamp="1395836788">
     <package name="Moszkva\Angie">
       <file name="C:\wamp\www\testapp\brainmachine\vendor\moszkva\angie\src\Moszkva\Angie/AngieServiceProvider.php">
         <class name="AngieServiceProvider" namespace="Moszkva\Angie">
