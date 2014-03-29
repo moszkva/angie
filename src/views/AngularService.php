@@ -39,10 +39,16 @@
 			return $resource(showURL.replace(/:([A-Z]+)/i, id)).get();
 		}
 		
-		this.list = function(id, params){
+		this.list = function(id, params, settings){
 			var listURL="<?php echo $showURL;?>";
-			var settings={query:{method: 'get', isArray:true}};
-			params = (typeof params==='undefined' ? {} : params);
+			
+			if(angular.isUndefined(params)){
+				params={};
+			}
+
+			if(angular.isUndefined(params)){
+				settings={query:{method: 'get', isArray:true}};
+			}
 		
 			return $resource(listURL.replace(/:([A-Z]+)/i, id), params, settings).query();
 		}		
